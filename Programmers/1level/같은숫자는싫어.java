@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class 같은숫자는싫어 {
     public int[] solution(int []arr) {
         int[] answer = {};
+        //tewst
         ArrayList<Integer> list = new ArrayList<>();
         int tmp = 11;
 
