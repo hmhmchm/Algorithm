@@ -1,36 +1,23 @@
-package test.com;
+import java.util.Collections;
 
-// JadenCase 문자열 만들
 public class JadenCase {
+    public static void main(String[] args) {
+        String s = "    u";
+        StringBuilder sb = new StringBuilder();
+        String[] str = s.toLowerCase().split(" ");
 
-	public static void main(String[] args) {
-		String s = "3people unFollowed me";
-		boolean check = true;
-		String answer = "";
-
-		char[] chs = s.toCharArray();
-
-		for (int i = 0; i < chs.length; i++) {
-			// 첫글자만
-			if (check && 97 <= chs[i] && chs[i] <= 122) {
-				chs[i] = (char) (chs[i] - 32);
-				check = false;
-			} else if (65 <= chs[i] && chs[i] <= 90) {
-				chs[i] = (char) (chs[i] + 32);
-
-			} else if (chs[i] == 32) { // 공백이
-				check = true;
-			} else {
-				check = false;
-			}
-
-		}
-
-		for (int i = 0; i < chs.length; i++) {
-			answer += chs[i];
-		}
-
-		System.out.println(answer);
-	}
-
+        for (int i = 0; i < str.length; i++) {
+            String[] str2 = str[i].split("");
+            str2[0] = str2[0].toUpperCase();
+            for (int j = 0; j < str2.length; j++) {
+                if(j>0 && str2[j-1].equals(" ")){
+                    str2[j]=str2[0].toUpperCase();
+                }else
+                sb.append(str2[j]);
+            }
+            sb.append(" ");
+        }
+        sb.deleteCharAt(sb.lastIndexOf(" "));
+        System.out.println(sb.toString());
+    }
 }
